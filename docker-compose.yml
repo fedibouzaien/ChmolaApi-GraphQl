@@ -9,7 +9,7 @@ services:
       - .:/srv/app
     ports:
       - 3000:3000
-    restart: unless-stopped
+    restart: always
   mongo:
     image: mongo:4.4
     ports:

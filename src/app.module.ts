@@ -6,6 +6,7 @@ import { RootResolver } from './root.resolver';
 import { MongooseModule, MongooseModuleOptions } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ConfigLoader } from 'config';
+import { KitchenModule } from './kitchen/kitchen.module';
 
 
 @Module({
@@ -29,6 +30,8 @@ import { ConfigLoader } from 'config';
     },
     inject: [ConfigService],
   }),
+
+  KitchenModule,
 ],
   providers: [RootResolver],
 })
