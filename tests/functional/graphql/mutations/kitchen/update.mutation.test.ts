@@ -11,7 +11,7 @@ import {
   KitchenDocument,
   KitchenSchemaName,
 } from '../../../../../src/kitchen/schemas';
-import { IdGenerator } from 'src/common/generators';
+import { UuidGenerator } from '../../../../../src/common/generators';
 
 describe('[graphql] [mutation] kitchen update', () => {
   let app: INestApplication;
@@ -25,7 +25,7 @@ describe('[graphql] [mutation] kitchen update', () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     })
-      .overrideProvider(IdGenerator
+      .overrideProvider(UuidGenerator
         )
       .useValue({ generate: jest.fn().mockReturnValue(uuidExcept) })
       .compile();

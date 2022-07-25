@@ -1,4 +1,3 @@
-
 import { Type } from 'class-transformer';
 import {
   IsBoolean,
@@ -36,28 +35,28 @@ class Location {
 }
 
 export class KitchenUpdateCommand {
-    @IsNotEmpty()
-    public readonly uuid: string;
-  
-    @IsOptional()
-    @MinLength(5)
-    @MaxLength(20)
-    public readonly name: string;
-  
-    @IsOptional()
-    @ValidateNested({ each: true })
-    @IsNotEmpty()
-    @Type(() => Location)
-    public readonly location: Location;
-  
-    @IsOptional()
-    @IsBoolean()
-    @IsNotEmpty()
-    public readonly status: boolean;
-  
-    @IsOptional()
-    @ValidateNested({ each: true })
-    @Type(() => Address)
-    @IsNotEmpty()
-    public readonly address: Address;
-  }
+  @IsNotEmpty()
+  public readonly uuid: string;
+
+  @IsOptional()
+  @MinLength(5)
+  @MaxLength(20)
+  public readonly name: string;
+
+  @IsOptional()
+  @ValidateNested({ each: true })
+  @IsNotEmpty()
+  @Type(() => Location)
+  public readonly location: Location;
+
+  @IsOptional()
+  @IsBoolean()
+  @IsNotEmpty()
+  public readonly status: boolean;
+
+  @IsOptional()
+  @ValidateNested({ each: true })
+  @Type(() => Address)
+  @IsNotEmpty()
+  public readonly address: Address;
+}

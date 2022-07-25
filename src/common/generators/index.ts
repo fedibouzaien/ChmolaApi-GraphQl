@@ -1,5 +1,5 @@
-import { IdGenerator } from './id.generator';
+import { UuidGenerator } from './uuid.generator';
 
-export * from './id.generator';
+export * from './uuid.generator';
 
-export const generators = [IdGenerator];
+export const generators = [UuidGenerator];

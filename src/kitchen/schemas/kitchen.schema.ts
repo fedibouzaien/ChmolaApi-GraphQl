@@ -1,10 +1,9 @@
 import { ModelDefinition, Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Types , Document } from 'mongoose';
+import { Types, Document } from 'mongoose';
 
 export type KitchenDocument = KitchenCollection & Document;
 
 export const KitchenSchemaName = 'kitchen';
-
 
 @Schema({ _id: false })
 class Address {

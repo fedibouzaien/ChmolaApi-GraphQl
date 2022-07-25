@@ -1,4 +1,3 @@
-
 import { Query, Resolver } from '@nestjs/graphql';
 
 @Resolver()

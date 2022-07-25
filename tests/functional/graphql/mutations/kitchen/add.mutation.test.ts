@@ -5,14 +5,13 @@ import { AppModule } from '../../../../../src/app.module';
 import { gql } from 'apollo-server-express';
 import { print } from 'graphql';
 import { Connection, Model } from 'mongoose';
-
 import { getModelToken, getConnectionToken } from '@nestjs/mongoose';
 import { v4 as uuid } from 'uuid';
 import {
   KitchenDocument,
   KitchenSchemaName,
 } from '../../../../../src/kitchen/schemas';
-import { IdGenerator } from 'src/common/generators';
+import { UuidGenerator } from '../../../../../src/common/generators';
 
 describe('[graphql] [mutation] kitchen add', () => {
   let app: INestApplication;
@@ -26,7 +25,7 @@ describe('[graphql] [mutation] kitchen add', () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     })
-      .overrideProvider(IdGenerator)
+      .overrideProvider(UuidGenerator)
       .useValue({ generate: jest.fn().mockReturnValue(uuidExcept) })
       .compile();
 

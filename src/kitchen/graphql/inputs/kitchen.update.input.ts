@@ -41,5 +41,5 @@ export class KitchenUpdateInput {
   public readonly status?: boolean;
 
   @Field({ nullable: true })
-  public readonly ddress?: KitchenUpdateAddressInput;
+  public readonly address?: KitchenUpdateAddressInput;
 }

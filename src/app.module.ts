@@ -5,35 +5,34 @@ import { GqlModuleOptions, GraphQLModule } from '@nestjs/graphql';
 import { RootResolver } from './root.resolver';
 import { MongooseModule, MongooseModuleOptions } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { ConfigLoader } from 'config';
 import { KitchenModule } from './kitchen/kitchen.module';
-
+import { ConfigLoader } from 'config';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-    isGlobal: true,
-    load: ConfigLoader.load(),
-    cache: true,
-    envFilePath: ['.env.dist', '.env'],
-  }),
-  CqrsModule,
-  GraphQLModule.forRootAsync({
-    driver: ApolloDriver,
-    useFactory: (config: ConfigService) => {
-      return config.get<Omit<GqlModuleOptions, 'driver'>>('graphql');
-    },
-    inject: [ConfigService],
-  }),
-  MongooseModule.forRootAsync({
-    useFactory: (config: ConfigService) => {
-      return config.get<MongooseModuleOptions>('mongoose');
-    },
-    inject: [ConfigService],
-  }),
+      isGlobal: true,
+      load: ConfigLoader.load(),
+      cache: true,
+      envFilePath: ['.env.dist', '.env'],
+    }),
+    CqrsModule,
+    GraphQLModule.forRootAsync({
+      driver: ApolloDriver,
+      useFactory: (config: ConfigService) => {
+        return config.get<Omit<GqlModuleOptions, 'driver'>>('graphql');
+      },
+      inject: [ConfigService],
+    }),
+    MongooseModule.forRootAsync({
+      useFactory: (config: ConfigService) => {
+        return config.get<MongooseModuleOptions>('mongoose');
+      },
+      inject: [ConfigService],
+    }),
 
-  KitchenModule,
-],
+    KitchenModule,
+  ],
   providers: [RootResolver],
 })
 export class AppModule {}

@@ -5,7 +5,7 @@ import { KitchenRepository } from '../../repositories';
 import { KitchenAddCommand } from '../kitchen.add.command';
 import * as validator from 'class-validator';
 import { InvalidArgumentKitchenAddCommandException } from 'src/kitchen/exceptions';
-import { IdGenerator } from 'src/common/generators';
+import { UuidGenerator } from 'src/common/generators';
 
 @CommandHandler(KitchenAddCommand)
 export class KitchenAddCommandHandler
@@ -14,7 +14,7 @@ export class KitchenAddCommandHandler
   constructor(
     private readonly repository: KitchenRepository,
     private readonly eventBus: EventBus,
-    private readonly idGenerateor: IdGenerator,
+    private readonly idGenerateor: UuidGenerator,
   ) {}
 
   execute(command: KitchenAddCommand): Promise<any> {

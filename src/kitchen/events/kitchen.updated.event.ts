@@ -1,4 +1,3 @@
-
 import { KitchenModel } from '../models';
 
 export class KitchenUpdatedEvent {
