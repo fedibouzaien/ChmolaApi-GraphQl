@@ -1,40 +1,40 @@
 import { Field, InputType } from '@nestjs/graphql';
 
 @InputType()
-class LocationInput {
+export class KitchenAddLocationInput {
   @Field()
-  latitude: number;
+  public readonly latitude: number;
 
   @Field()
-  longitude: number;
+  public readonly longitude: number;
 }
 
 @InputType()
-class AddressInput {
+export class KitchenAddAddressInput {
   @Field()
-  city: string;
+  public readonly city: string;
 
   @Field()
-  country: string;
+  public readonly country: string;
 
   @Field()
-  street: string;
+  public readonly street: string;
 
   @Field()
-  zipCode: number;
+  public readonly zipCode: number;
 }
 
 @InputType()
 export class KitchenAddInput {
   @Field()
-  public name: string;
+  public readonly name: string;
 
   @Field()
-  public location: LocationInput;
+  public readonly location: KitchenAddLocationInput;
 
   @Field()
-  public status: boolean;
+  public readonly status: boolean;
 
   @Field()
-  public address: AddressInput;
+  public readonly address: KitchenAddAddressInput;
 }

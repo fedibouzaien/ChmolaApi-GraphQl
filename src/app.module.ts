@@ -10,7 +10,8 @@ import { KitchenModule } from './kitchen/kitchen.module';
 
 
 @Module({
-  imports: [ConfigModule.forRoot({
+  imports: [
+    ConfigModule.forRoot({
     isGlobal: true,
     load: ConfigLoader.load(),
     cache: true,
